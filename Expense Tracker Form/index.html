@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="form">
+    <form>
+        <h2 class="main">EXPENSE TRACKER FORM</h2>
+        <fieldset>
+            <legend>Basic Information</legend>
+        <!--Expense Title-->
+        <label for="exptitle">Expense Title</label><br>
+        <input type="text" id="exptitle" name="exptitle" required>
+        <br><br>
+
+        <!--Category (Dropdown)-->
+        <label for="category">Choose Category</label><br>
+            <select name="category" id="category" required>
+                    <option value="housing">Housing</option>
+                    <option value="food">Food</option>
+                    <optin value="transportation">Transportation</optin>
+                    <option value="health">Health</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="technology">Technology</option>
+                    <option value="miscellaneous">Miscellaneous expenses</option>
+            </select>
+        </fieldset>    
+        <br><br>
+
+        <fieldset>
+            <legend>Amount</legend>
+        <!--Amount (number)-->
+        <label for="amount">Amount</label><br>
+        <input type="number" id="amount" name="amount" required>
+        <br><br>
+
+        <!--Currency (Dropdown)-->
+        <label for="currency">Select Currency</label><br>
+        <select name="currency" id="currency" required>
+            <option value="USD" label="US Dollar">USD</option>
+            <option value="INR" label="Indian Rupee">INR</option>
+            <option value="EUR" label="Euro">EUR</option>
+        </select>
+    </fieldset>    
+        <br><br>
+
+        <fieldset>
+            <legend>Date & Time</legend>
+        <!--Expense Date-->
+        <label for="dt">Expense Date</label>
+        <input type="date" id="dt" name="'dt" required>
+        <br><br>
+
+        <!--Time-->
+        <label for="appt">Select Time</label>
+        <input type="time" id="appt" name="appt">
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+        <!--Payment method (radio)-->
+        <label>Payment Method</label><br>
+        <input type="radio" id="card" name="payment" value="cash" required>
+        <label for="cash">Cash</label><br>
+        <input type="radio" id="card" name="payment" value="card" required>
+        <label for="card">Credit/Debit Card</label><br>
+        <input type="radio" id="upi" name="payment" value="UPI" required>
+        <label for="upi">UPI/Mobile Wallet</label><br>
+        <input type="radio" id="bank" name="payment" value="Bank Transfer" required>
+        <label for="bank">Bank Transfer</label><br>
+        <input type="radio" id="cheque" name="payment" value="cheque" required>
+        <label for="">Cheque</label> 
+        </fieldset> 
+        <br><br>
+
+
+        <fieldset>
+            <legend>Reference</legend>
+        <!--Transaction ID-->
+        <label for="transaction">Transaction ID</label><br>
+        <input type="text" id="transaction" name="transaction">
+        <br><br>
+
+        <!--Vendor/Store name-->
+        <label for="name">Vendor/Store Name</label><br>
+        <input type="text" id="name" name="name">
+        <br><br>
+
+        <!--Location-->
+        <label for="loc">Location</label><br>
+        <input type="text" id="loc" name="loc">
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+        <!--Receipt Available-->
+        <label>Receipt Available</label><br>
+        <input type="checkbox" id="ra" name="ra">
+        <label for="ra">Yes</label><br>
+        <input type="checkbox" id="ra" name="ra">
+        <label for="ra">No</label>   
+        <br><br>
+
+        <!--Notes/Description-->
+        <label for="note">Notes/Description</label><br>
+        <textarea id="note" name="note" max="200"></textarea>
+        <br><br>
+
+        <!--Tags-->
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" name="tags" placeholder="e.g. Food, Travel, Office">
+        <br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Save Options</legend>
+        <!--Recurring expense-->
+        <input type="checkbox" id="yes" name="save" value="Yes">
+        <label for="yes">Save this recurring expense</label><br>  
+        <br><br>        
+
+        <!--Save expense-->
+        <input type="checkbox" id="yes" name="save" value="Yes" required>
+        <label for="yes">Save this expense</label><br>  
+        </fieldset>  
+        <br><br>
+
+        <div class="submit">
+        <button type="button">Submit</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
