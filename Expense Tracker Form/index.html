@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="container">  
+    <div class="main">
+        <h2>EXPENSE TRACKER FORM</h2>
+         <p class="id1">~ Keep Track of Your Spending</p>
+    </div>  
 <div class="form">
     <form>
-        <h2 class="main">EXPENSE TRACKER FORM</h2>
         <fieldset>
             <legend>Basic Information</legend>
-        <!--Expense Title-->
-        <label for="exptitle">Expense Title</label><br>
-        <input type="text" id="exptitle" name="exptitle" required>
-        <br><br>
+            <!--Expense Title-->
+            <label for="exptitle">Expense Title <span class="asterisk">*</span></label><br>
+            <input type="text" id="exptitle" name="exptitle" placeholder="Expense name">
+        <br>
 
         <!--Category (Dropdown)-->
-        <label for="category">Choose Category</label><br>
+        <label for="category">Choose Category <span class="asterisk">*</span></label><br>
             <select name="category" id="category" required>
                     <option value="housing">Housing</option>
                     <option value="food">Food</option>
-                    <optin value="transportation">Transportation</optin>
+                    <option value="transportation">Transportation</optin>
                     <option value="health">Health</option>
                     <option value="shopping">Shopping</option>
                     <option value="entertainment">Entertainment</option>
@@ -30,41 +34,44 @@
                     <option value="miscellaneous">Miscellaneous expenses</option>
             </select>
         </fieldset>    
-        <br><br>
 
         <fieldset>
             <legend>Amount</legend>
         <!--Amount (number)-->
-        <label for="amount">Amount</label><br>
-        <input type="number" id="amount" name="amount" required>
-        <br><br>
+        <label for="amount">Amount <span class="asterisk">*</span></label><br>
+        <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+        <br>
 
         <!--Currency (Dropdown)-->
-        <label for="currency">Select Currency</label><br>
+        <label for="currency">Select Currency <span class="asterisk">*</span></label><br>
         <select name="currency" id="currency" required>
             <option value="USD" label="US Dollar">USD</option>
             <option value="INR" label="Indian Rupee">INR</option>
             <option value="EUR" label="Euro">EUR</option>
         </select>
     </fieldset>    
-        <br><br>
 
         <fieldset>
-            <legend>Date & Time</legend>
+            <legend>Date & Time</legend>  
+        <div class="box">
         <!--Expense Date-->
-        <label for="dt">Expense Date</label>
-        <input type="date" id="dt" name="'dt" required>
-        <br><br>
+        <div>
+        <label for="dt">Expense Date <span class="asterisk">*</span></label><br>
+        <input type="date" id="dt" name="'dt" required><br>
+        </div>
 
         <!--Time-->
-        <label for="appt">Select Time</label>
-        <input type="time" id="appt" name="appt">
+        <div>
+        <label for="appt">Select Time</label><br>
+        <input type="time" id="appt" name="appt"><br>
+        </div>
+        </div>
         </fieldset>
-        <br><br>
+        <br>
 
         <fieldset>
         <!--Payment method (radio)-->
-        <label>Payment Method</label><br>
+        <label>Payment Method <span class="asterisk">*</span></label><br>
         <input type="radio" id="card" name="payment" value="cash" required>
         <label for="cash">Cash</label><br>
         <input type="radio" id="card" name="payment" value="card" required>
@@ -74,48 +81,45 @@
         <input type="radio" id="bank" name="payment" value="Bank Transfer" required>
         <label for="bank">Bank Transfer</label><br>
         <input type="radio" id="cheque" name="payment" value="cheque" required>
-        <label for="">Cheque</label> 
+        <label for="cheque">Cheque</label> 
         </fieldset> 
-        <br><br>
 
 
         <fieldset>
             <legend>Reference</legend>
         <!--Transaction ID-->
         <label for="transaction">Transaction ID</label><br>
-        <input type="text" id="transaction" name="transaction">
-        <br><br>
+        <input type="text" id="transaction" name="transaction" placeholder="Enter Transaction ID">
+        <br>
 
         <!--Vendor/Store name-->
         <label for="name">Vendor/Store Name</label><br>
-        <input type="text" id="name" name="name">
-        <br><br>
+        <input type="text" id="name" name="name" placeholder="Enter Vendor/Store name">
+        <br>
 
         <!--Location-->
         <label for="loc">Location</label><br>
-        <input type="text" id="loc" name="loc">
+        <input type="text" id="loc" name="loc" placeholder="Enter Location">
         </fieldset>
-        <br><br>
 
         <fieldset>
             <legend>Additional Information</legend>
         <!--Receipt Available-->
         <label>Receipt Available</label><br>
-        <input type="checkbox" id="ra" name="ra">
-        <label for="ra">Yes</label><br>
-        <input type="checkbox" id="ra" name="ra">
-        <label for="ra">No</label>   
+        <input type="radio" id="yes" name="receipt" value="yes">
+        <label for="yes">Yes</label><br>
+        <input type="radio" id="no" name="receipt" value="no">
+        <label for="no">No</label>
         <br><br>
 
         <!--Notes/Description-->
         <label for="note">Notes/Description</label><br>
-        <textarea id="note" name="note" max="200"></textarea>
+        <textarea id="note" name="note" max="200" placeholder="Your message..."></textarea>
         <br><br>
 
         <!--Tags-->
         <label for="tags">Tags</label>
         <input type="text" id="tags" name="tags" placeholder="e.g. Food, Travel, Office">
-        <br><br>
         </fieldset>
 
         <fieldset>
@@ -123,19 +127,17 @@
         <!--Recurring expense-->
         <input type="checkbox" id="yes" name="save" value="Yes">
         <label for="yes">Save this recurring expense</label><br>  
-        <br><br>        
+        <br>      
 
         <!--Save expense-->
         <input type="checkbox" id="yes" name="save" value="Yes" required>
-        <label for="yes">Save this expense</label><br>  
+        <label for="yes">Save this expense <span class="asterisk">*</span></label><br>  
         </fieldset>  
-        <br><br>
 
         <div class="submit">
         <button type="button">Submit</button>
-        </div>
-
     </form>
+</div>
 </div>
 </body>
 </html>
