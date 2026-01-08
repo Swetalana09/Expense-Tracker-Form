@@ -1,143 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker Form</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<div class="container">  
-    <div class="main">
-        <h2>EXPENSE TRACKER FORM</h2>
-         <p class="id1">~ Keep Track of Your Spending</p>
-    </div>  
-<div class="form">
-    <form>
-        <fieldset>
-            <legend>Basic Information</legend>
-            <!--Expense Title-->
-            <label for="exptitle">Expense Title <span class="asterisk">*</span></label><br>
-            <input type="text" id="exptitle" name="exptitle" placeholder="Expense name">
-        <br>
-
-        <!--Category (Dropdown)-->
-        <label for="category">Choose Category <span class="asterisk">*</span></label><br>
-            <select name="category" id="category" required>
-                    <option value="housing">Housing</option>
-                    <option value="food">Food</option>
-                    <option value="transportation">Transportation</optin>
-                    <option value="health">Health</option>
-                    <option value="shopping">Shopping</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="technology">Technology</option>
-                    <option value="miscellaneous">Miscellaneous expenses</option>
-            </select>
-        </fieldset>    
-
-        <fieldset>
-            <legend>Amount</legend>
-        <!--Amount (number)-->
-        <label for="amount">Amount <span class="asterisk">*</span></label><br>
-        <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
-        <br>
-
-        <!--Currency (Dropdown)-->
-        <label for="currency">Select Currency <span class="asterisk">*</span></label><br>
-        <select name="currency" id="currency" required>
-            <option value="USD" label="US Dollar">USD</option>
-            <option value="INR" label="Indian Rupee">INR</option>
-            <option value="EUR" label="Euro">EUR</option>
-        </select>
-    </fieldset>    
-
-        <fieldset>
-            <legend>Date & Time</legend>  
-        <div class="box">
-        <!--Expense Date-->
-        <div>
-        <label for="dt">Expense Date <span class="asterisk">*</span></label><br>
-        <input type="date" id="dt" name="'dt" required><br>
+    <div class="container">
+        <div class="main">
+            <h2>EXPENSE TRACKER FORM</h2>
+            <p class="id1">~ Keep Track of Your Spending</p>
         </div>
+        <div class="form">
+            <form>
+                <fieldset>
+                    <legend>Expense Details</legend>
+                    <!--Expense Title-->
+                    <label for="exptitle">Expense Title <span class="asterisk">*</span></label><br>
+                    <input type="text" id="exptitle" name="exptitle" placeholder="Expense name" required minlength="3"
+                        maxlength="50">
+                    <br>
 
-        <!--Time-->
-        <div>
-        <label for="appt">Select Time</label><br>
-        <input type="time" id="appt" name="appt"><br>
+                    <!--Category (Dropdown)-->
+                    <label for="category">Choose Category <span class="asterisk">*</span></label><br>
+                    <select name="category" id="category" required>
+                        <option value="">--Select Category--</option> <!--default entry option-->
+                        <option value="housing">Housing</option>
+                        <option value="food">Food</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="health">Health</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="technology">Technology</option>
+                        <option value="miscellaneous">Miscellaneous expenses</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Amount</legend>
+                    <!--Amount (number)-->
+                    <label for="amount">Amount <span class="asterisk">*</span></label><br>
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+                    <br>
+
+                    <!--Currency (Dropdown)-->
+                    <label for="currency">Select Currency <span class="asterisk">*</span></label><br>
+                    <select name="currency" id="currency" required>
+                        <option value="">--Select Currency--</option>
+                        <option value="USD" label="US Dollar">USD</option>
+                        <option value="INR" label="Indian Rupee">INR</option>
+                        <option value="EUR" label="Euro">EUR</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Date & Time</legend>
+                    <div class="box">
+                        <!--Expense Date-->
+                        <div>
+                            <label for="dt">Expense Date <span class="asterisk">*</span></label><br>
+                            <input type="date" id="dt" name="'dt" required><br>
+                        </div>
+
+                        <!--Time-->
+                        <div>
+                            <label for="appt">Select Time</label><br>
+                            <input type="time" id="appt" name="appt"><br>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+
+                <fieldset>
+                    <!--Payment method (radio)-->
+                    <label>Payment Method <span class="asterisk">*</span></label><br>
+                    <input type="radio" id="payment_cash" name="payment" value="cash" required>
+                    <label for="payment_cash">Cash</label><br>
+
+                    <input type="radio" id="payment_card" name="payment" value="card" required>
+                    <label for="payment_card">Credit/Debit Card</label><br>
+
+                    <input type="radio" id="payment_upi" name="payment" value="UPI" required>
+                    <label for="payment_upi">UPI/Mobile Wallet</label><br>
+
+                    <input type="radio" id="payment_bank" name="payment" value="Bank Transfer" required>
+                    <label for="payment_bank">Bank Transfer</label><br>
+
+                    <input type="radio" id="payment_cheque" name="payment" value="cheque" required>
+                    <label for="payment_cheque">Cheque</label><br>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Reference</legend>
+                    <!--Transaction ID-->
+                    <label for="transaction">Transaction ID</label><br>
+                    <input type="text" id="transaction" name="transaction" placeholder="Enter Transaction ID">
+                    <br>
+
+                    <!--Vendor/Store name-->
+                    <label for="name">Vendor/Store Name</label><br>
+                    <input type="text" id="name" name="name" placeholder="Enter Vendor/Store name">
+                    <br>
+
+                    <!--Location-->
+                    <label for="loc">Location</label><br>
+                    <input type="text" id="loc" name="loc" placeholder="Enter Location">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    <!--Receipt Available-->
+                    <label>Receipt Available</label><br>
+                    <input type="radio" id="receipt_yes" name="receipt" value="yes">
+                    <label for="receipt_yes">Yes</label><br>
+                    <input type="radio" id="receipt_no" name="receipt" value="no">
+                    <label for="receipt_no">No</label>
+                    <br><br>
+
+                    <!--Notes/Description-->
+                    <label for="note">Notes/Description</label><br>
+                    <textarea id="note" name="note" max="200" placeholder="Your message..."></textarea>
+                    <br><br>
+
+                    <!--Tags-->
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" placeholder="e.g. Food, Travel, Office">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Expense Preferences</legend>
+                    <!--Recurring expense-->
+                    <input type="checkbox" id="save_recurring" name="save" value="Yes">
+                    <label for="save_recurring">Save this recurring expense</label><br>
+                    <br>
+
+                    <!--Save expense-->
+                    <input type="checkbox" id="save_expense" name="save" value="Yes" required>
+                    <label for="save_expense">Save this expense <span class="asterisk">*</span></label><br>
+                </fieldset>
+
+                <div class="submit">
+                    <button type="button">SUBMIT</button>
+                </div>
+            </form>
         </div>
-        </div>
-        </fieldset>
-        <br>
+    </div>
 
-        <fieldset>
-        <!--Payment method (radio)-->
-        <label>Payment Method <span class="asterisk">*</span></label><br>
-        <input type="radio" id="card" name="payment" value="cash" required>
-        <label for="cash">Cash</label><br>
-        <input type="radio" id="card" name="payment" value="card" required>
-        <label for="card">Credit/Debit Card</label><br>
-        <input type="radio" id="upi" name="payment" value="UPI" required>
-        <label for="upi">UPI/Mobile Wallet</label><br>
-        <input type="radio" id="bank" name="payment" value="Bank Transfer" required>
-        <label for="bank">Bank Transfer</label><br>
-        <input type="radio" id="cheque" name="payment" value="cheque" required>
-        <label for="cheque">Cheque</label> 
-        </fieldset> 
+    <script>
+        const form = document.querySelector("form");
+        const btn = document.querySelector("button");
 
+        btn.onclick = function () {
+            let valid = true;
 
-        <fieldset>
-            <legend>Reference</legend>
-        <!--Transaction ID-->
-        <label for="transaction">Transaction ID</label><br>
-        <input type="text" id="transaction" name="transaction" placeholder="Enter Transaction ID">
-        <br>
+            //remove old errors
+            document.querySelectorAll(".error").forEach(e => e.remove());
 
-        <!--Vendor/Store name-->
-        <label for="name">Vendor/Store Name</label><br>
-        <input type="text" id="name" name="name" placeholder="Enter Vendor/Store name">
-        <br>
+            //text,number,date
+            document.querySelectorAll("input[required]").forEach(input => {
+                if (input.type === "radio" || input.type === "checkbox") return;
 
-        <!--Location-->
-        <label for="loc">Location</label><br>
-        <input type="text" id="loc" name="loc" placeholder="Enter Location">
-        </fieldset>
+                if (input.value.trim() === "") {
+                    if (input.id === "exptitle") showError(input, "The title field is required.");
+                    else if (input.id === "amount") showError(input, "Please enter an amount.");
+                    else if (input.id === "dt") showError(input, "Please select a date.");
+                    else showError(input, "This field is required.");
+                    valid = false;
+                }
+                if (input.id === "exptitle" && input.value.trim() != "") {
+                    if (input.value.length < 3 || input.value.length > 50) {
+                        showError(input, "Title must be 3 to 50 characters long.");
+                        valid = false;
+                    }
+                }
+                if (input.id === "amount" && input.value != "") {
+                    if (Number(input.value) <= 0) {
+                        showError(input, "Amount must be a positive number.");
+                        valid = false;
+                    }
+                }
+            });
+            //select
+            document.querySelectorAll("select[required]").forEach(select => {
+                if (select.value === "") {
+                    if (select.id === "category") showError(select, "Please select a category.");
+                    else if (select.id === "currency") showError(select, "Please select a currency.");
+                    else showError(select, "Please select an option.");
+                    valid = false;
+                }
+            });
+            //radio(payment)
+            const radios = document.querySelectorAll('input[name="payment"]');
+            if (!document.querySelector('input[name="payment"]:checked')) {
+                showGroupError(radios[radios.length - 1], "Please select a Payment Method.");
+                valid = false;
+            }
 
-        <fieldset>
-            <legend>Additional Information</legend>
-        <!--Receipt Available-->
-        <label>Receipt Available</label><br>
-        <input type="radio" id="yes" name="receipt" value="yes">
-        <label for="yes">Yes</label><br>
-        <input type="radio" id="no" name="receipt" value="no">
-        <label for="no">No</label>
-        <br><br>
+            //checkbox(save)
+            const save = document.querySelector('input[type="checkbox"][required]');
+            if (!save.checked) {
+                showGroupError(save, "You must save this expense.");
+                valid = false;
+            }
 
-        <!--Notes/Description-->
-        <label for="note">Notes/Description</label><br>
-        <textarea id="note" name="note" max="200" placeholder="Your message..."></textarea>
-        <br><br>
+            if (valid) {
+                alert("Form submitted successfully.");
+                form.reset();
+            }
+        };
 
-        <!--Tags-->
-        <label for="tags">Tags</label>
-        <input type="text" id="tags" name="tags" placeholder="e.g. Food, Travel, Office">
-        </fieldset>
+        //show error below field
+        function showError(el, msg) {
+            const e = document.createElement("div");
+            e.className = "error";
+            e.style.color = "red";
+            e.style.fontsize = "12px";
+            e.innerText = msg;
+            el.after(e);
+        }
 
-        <fieldset>
-            <legend>Save Options</legend>
-        <!--Recurring expense-->
-        <input type="checkbox" id="yes" name="save" value="Yes">
-        <label for="yes">Save this recurring expense</label><br>  
-        <br>      
+        //show error after radio/checkbox group
+        function showGroupError(el, msg) {
+            const e = document.createElement("div");
+            e.className = "error";
+            e.style.color = "red";
+            e.style.fontsize = "12px";
+            e.innerText = msg;
+            el.parentElement.appendChild(e);
+        }
 
-        <!--Save expense-->
-        <input type="checkbox" id="yes" name="save" value="Yes" required>
-        <label for="yes">Save this expense <span class="asterisk">*</span></label><br>  
-        </fieldset>  
-
-        <div class="submit">
-        <button type="button">Submit</button>
-    </form>
-</div>
-</div>
+        //remove error on input
+        document.querySelectorAll("input,select").forEach(el => {
+            el.oninput = () => {
+                if (el.nextElementSibling?.classList.contains("error")) {
+                    el.nextElementSibling.remove();
+                }
+            };
+            el.onchange = el.oninput;
+        });
+    </script>
 </body>
 </html>

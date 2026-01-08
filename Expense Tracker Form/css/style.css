@@ -3,14 +3,14 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 .main{
+    width:100%;
     text-align: center;
     font-size:24px;
     margin-bottom: 20px;
     background-color: rgb(3, 3, 95);
     color: white;
     height:auto;
-    width:730px;
-    padding:5px;
+    padding:10px 0;
     margin: auto;
 }
 .id1{
@@ -19,7 +19,7 @@ body{
 }
 
 .form{
-    width:700px;
+    width:100%;
     margin: 30px auto;
     align-items: stretch;
     border: 1px solid black;
@@ -28,16 +28,21 @@ body{
     background-color: rgb(175, 195, 235);
 }
 
+*{
+    box-sizing:border-box;
+}
+
 .form,.table-box{
-    width:700px;
     flex:1;
     border:1px solid #ccc;
     padding: 20px;
 }
 .container{
-    gap: 30px;
+    width:90%;
+    max-width: 730px;
     padding: 20px;
-    align-items: flex-start;
+    margin:auto;
+    box-sizing: border-box;
     background-image: url('../images/picture.jpg');
     background-size: cover;
     background-position: center;
@@ -46,6 +51,7 @@ body{
 
 .box{
     display: flex;
+    gap:20px;
     justify-content: space-around;
 }
 
@@ -54,6 +60,8 @@ fieldset{
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 40px;
+    background-color: #ffffffaa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 legend{
@@ -61,6 +69,14 @@ legend{
     font-weight: bold;
     padding: 0 8px;
     text-align: center;
+    color:#05173f;
+    text-shadow: 1px 1px #b0b0ff;
+}
+
+
+.main h2{
+    color:#06276d;
+    text-shadow: 1px 1px 2px #6f7da5;
 }
 
 label{
@@ -75,17 +91,20 @@ label{
 }
 
 button{
-    padding:10px 20px;
-    font-size:16px;
+    background-color: linear-gradient(to right,#05173f,#6f7da5);
+    padding:14px 50px;
+    font-size:18px;
+    font-weight: bold;
     background-color: #05173f;
     color: white;
     border:none;
-    border-radius: 15px;
+    border-radius: 20px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
-    background-color: #6f7da5;
+    transform: scale(1.05);
 }
 
 textarea{
@@ -116,14 +135,33 @@ input[type=text], input[type=number], input[type=date],input[type=time]{
     box-sizing: border-box;
 }
 
-input[type='radio'],
-input[type='checkbox']{
-    margin-right: 6px;
-    margin-top: 6px;
+input,select,textarea{
+    border-radius: 10px;
+    border:1px solid #3b3b98;
+    padding:10px;
+    transition: 0.3s;
+}
+input:focus,
+select:focus,
+textarea:focus{
+    border-color: #05173f;
+    box-shadow: 0 0 5px #05173f;
+    outline: none;
 }
 
 input[type='checkbox']{
-    box-sizing: border-box;
+    width:18px;
+    height:15px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+input[type='checkbox']+label{
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+    display:inline-block;
+    margin-bottom: 5px;
 }
 
 
@@ -137,3 +175,4 @@ input[type='checkbox']{
         padding:15px;
     }
 }
+
