@@ -46,7 +46,7 @@ function validateTitle(showRequired = false) {
         return false;
     }
     if (/^\s/.test(value)) {
-        showError(titleInput, "cannot start with a space.");
+        showError(titleInput, "Cannot start with a space.");
         return false;
     }
     const trimmed = value.trim();
@@ -71,7 +71,7 @@ function validateVendor() {
     removeError(vendorInput);
     if (value !== "") {
         if (/^\s/.test(value)) {
-            showError(vendorInput, "cannot start with a space.");
+            showError(vendorInput, "Cannot start with a space.");
             return false;
         }
         const trimmed = value.trim();
@@ -96,7 +96,7 @@ function validateLocation() {
     removeError(locationInput);
     if (value !== "") {
         if (/^\s/.test(value)) {
-            showError(locationInput, "cannot start with a space.");
+            showError(locationInput, "Cannot start with a space.");
             return false;
         }
         const trimmed = value.trim();
@@ -122,7 +122,7 @@ function validateTransactionID() {
 
     if (value !== "") {
         if (/^[^a-zA-Z0-9]/.test(value)) {
-            showError(transactionInput, "cannot start with a space or special character.");
+            showError(transactionInput, "Cannot start with a space or special character.");
             return false;
         }
         if (!/^[^a-zA-Z0-9-_]+$/.test(value)) {
@@ -140,7 +140,7 @@ const amountInput = document.getElementById("amount");
 function validateAmount(showRequired=false) {
     const value = amountInput.value.trim();
     removeError(amountInput);
-    if(showRequired&&value===""){
+    if(showRequired && value===""){
         showError(amountInput,'Amount is required.');
         return false;
     }
