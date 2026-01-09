@@ -42,7 +42,7 @@
                 <fieldset>
                     <legend>Amount</legend>
                     <!--Amount (number)-->
-                    <label for="amount">Amount <span class="asterisk">*</span></label><br>
+                    <label for="amount">Amount<span class="asterisk">*</span></label><br>
                     <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
                     <br>
 
@@ -62,13 +62,13 @@
                         <!--Expense Date-->
                         <div>
                             <label for="dt">Expense Date <span class="asterisk">*</span></label><br>
-                            <input type="date" id="dt" name="'dt" required><br>
+                            <input type="date" id="dt" name="dt" required>
                         </div>
 
                         <!--Time-->
                         <div>
-                            <label for="appt">Select Time</label><br>
-                            <input type="time" id="appt" name="appt"><br>
+                            <label for="appt">Select Time</label>
+                            <input type="time" id="appt" name="appt">
                         </div>
                     </div>
                 </fieldset>
@@ -95,7 +95,7 @@
 
 
                 <fieldset>
-                    <legend>Reference</legend>
+                    <legend>Reference (optional)</legend>
                     <!--Transaction ID-->
                     <label for="transaction">Transaction ID</label><br>
                     <input type="text" id="transaction" name="transaction" placeholder="Enter Transaction ID">
@@ -149,99 +149,7 @@
             </form>
         </div>
     </div>
-
-    <script>
-        const form = document.querySelector("form");
-        const btn = document.querySelector("button");
-
-        btn.onclick = function () {
-            let valid = true;
-
-            //remove old errors
-            document.querySelectorAll(".error").forEach(e => e.remove());
-
-            //text,number,date
-            document.querySelectorAll("input[required]").forEach(input => {
-                if (input.type === "radio" || input.type === "checkbox") return;
-
-                if (input.value.trim() === "") {
-                    if (input.id === "exptitle") showError(input, "The title field is required.");
-                    else if (input.id === "amount") showError(input, "Please enter an amount.");
-                    else if (input.id === "dt") showError(input, "Please select a date.");
-                    else showError(input, "This field is required.");
-                    valid = false;
-                }
-                if (input.id === "exptitle" && input.value.trim() != "") {
-                    if (input.value.length < 3 || input.value.length > 50) {
-                        showError(input, "Title must be 3 to 50 characters long.");
-                        valid = false;
-                    }
-                }
-                if (input.id === "amount" && input.value != "") {
-                    if (Number(input.value) <= 0) {
-                        showError(input, "Amount must be a positive number.");
-                        valid = false;
-                    }
-                }
-            });
-            //select
-            document.querySelectorAll("select[required]").forEach(select => {
-                if (select.value === "") {
-                    if (select.id === "category") showError(select, "Please select a category.");
-                    else if (select.id === "currency") showError(select, "Please select a currency.");
-                    else showError(select, "Please select an option.");
-                    valid = false;
-                }
-            });
-            //radio(payment)
-            const radios = document.querySelectorAll('input[name="payment"]');
-            if (!document.querySelector('input[name="payment"]:checked')) {
-                showGroupError(radios[radios.length - 1], "Please select a Payment Method.");
-                valid = false;
-            }
-
-            //checkbox(save)
-            const save = document.querySelector('input[type="checkbox"][required]');
-            if (!save.checked) {
-                showGroupError(save, "You must save this expense.");
-                valid = false;
-            }
-
-            if (valid) {
-                alert("Form submitted successfully.");
-                form.reset();
-            }
-        };
-
-        //show error below field
-        function showError(el, msg) {
-            const e = document.createElement("div");
-            e.className = "error";
-            e.style.color = "red";
-            e.style.fontsize = "12px";
-            e.innerText = msg;
-            el.after(e);
-        }
-
-        //show error after radio/checkbox group
-        function showGroupError(el, msg) {
-            const e = document.createElement("div");
-            e.className = "error";
-            e.style.color = "red";
-            e.style.fontsize = "12px";
-            e.innerText = msg;
-            el.parentElement.appendChild(e);
-        }
-
-        //remove error on input
-        document.querySelectorAll("input,select").forEach(el => {
-            el.oninput = () => {
-                if (el.nextElementSibling?.classList.contains("error")) {
-                    el.nextElementSibling.remove();
-                }
-            };
-            el.onchange = el.oninput;
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
