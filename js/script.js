@@ -42,20 +42,20 @@ function validateTitle(showRequired = false) {
     removeError(titleInput);
 
     if (showRequired && value.trim() === "") {
-        showError(titleInput, "Title is required.");
+        showError(titleInput, "Please enter a title.");
         return false;
     }
     if (/^\s/.test(value)) {
-        showError(titleInput, "Cannot start with a space.");
+        showError(titleInput, "Title cannot start with a space.");
         return false;
     }
     const trimmed = value.trim();
     if (trimmed !== "" && trimmed.length < 3) {
-        showError(titleInput, "Must be at least 3 characters.");
+        showError(titleInput, "Please enter a minimum of 3 characters.");
         return false;
     }
     if (trimmed.length > 50) {
-        showError(titleInput, "Cannot exceed 50 characters.");
+        showError(titleInput, "Please enter no more than 50 characters.");
         return false;
     }
     return true;
@@ -71,16 +71,16 @@ function validateVendor() {
     removeError(vendorInput);
     if (value !== "") {
         if (/^\s/.test(value)) {
-            showError(vendorInput, "Cannot start with a space.");
+            showError(vendorInput, "Name cannot start with a space.");
             return false;
         }
         const trimmed = value.trim();
         if (trimmed.length < 3) {
-            showError(vendorInput, "Must be at least characters.");
+            showError(vendorInput, "Please enter a minimum of 3 characters.");
             return false;
         }
         if (trimmed.length > 50) {
-            showError(vendorInput, "Cannot exceed 50 characters.");
+            showError(vendorInput, "Please enter no more than 50 characters.");
             return false;
         }
     }
@@ -96,16 +96,16 @@ function validateLocation() {
     removeError(locationInput);
     if (value !== "") {
         if (/^\s/.test(value)) {
-            showError(locationInput, "Cannot start with a space.");
+            showError(locationInput, "Location cannot start with a space.");
             return false;
         }
         const trimmed = value.trim();
         if (trimmed.length < 3) {
-            showError(locationInput, "Must be at least characters.");
+            showError(locationInput, "Please enter a minimum of 3 characters.");
             return false;
         }
         if (trimmed.length > 50) {
-            showError(locationInput, "Cannot exceed 50 characters.");
+            showError(locationInput, "Please enter no more than 50 characters.");
             return false;
         }
     }
@@ -141,7 +141,7 @@ function validateAmount(showRequired=false) {
     const value = amountInput.value.trim();
     removeError(amountInput);
     if(showRequired && value===""){
-        showError(amountInput,'Amount is required.');
+        showError(amountInput,'Please enter an amount.');
         return false;
     }
 
@@ -151,7 +151,7 @@ function validateAmount(showRequired=false) {
             return false;
         }
         if (Number(value)<=0) {
-            showError(amountInput,'Amount must be positive.');
+            showError(amountInput,'Please enter a positive amount.');
             return false;
         }
     }
@@ -202,7 +202,7 @@ btn.onclick=function(){
     //checkbox
     const save=document.querySelector('input[type="checkbox"][required]');
     if(!save.checked){
-        showGroupError(save,"You must save this expense.");
+        showGroupError(save,"You must save this expense to continue.");
         valid=false;
     }
 
@@ -212,7 +212,7 @@ btn.onclick=function(){
         firstError.scrollIntoView();
     }
     if(valid){
-        alert("Form submitted successfully.")
+        alert("Form submitted successfully!")
         form.reset();
     }
 };
