@@ -1,8 +1,6 @@
 const form = document.querySelector("form");
 const btn = document.querySelector("button");
 
-// Helper functions
-
 //shows an error msg below the input field
 function showError(el, msg) {
     removeError(el);
