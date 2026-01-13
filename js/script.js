@@ -193,7 +193,7 @@ btn.onclick=function(){
             var paymentValue=document.querySelector('input[name="payment"]:checked').value;
 
             if(editRow===null){
-
+                //concatenating values of respective columns to make a complete row
                 var newRow=table.insertRow();
                 newRow.innerHTML="<td>" + titleInput.value + "</td>" +
                 "<td>" + document.getElementById('category').value + "</td>" +
@@ -209,8 +209,10 @@ btn.onclick=function(){
                 "<td>" + document.getElementById("note").value + "</td>" +
                 "<td>" + document.getElementById("tags").value + "</td>" +
                 "<td>" + (document.getElementById("save_recurring").checked? "Yes" : "No") + "</td>" +
-                "<td><button class='edit-btn'>EDIT</button></td>" +
-                "<td><button class='del-btn'>X</button></td>";
+
+                "<td>" + "<button class='edit-btn'>EDIT</button>" + 
+                "<button class='del-btn'>DELETE</button>" + 
+                "</td>";
                 
                 alert("Form submitted successully!");
                 document.getElementById("expenseTable").scrollIntoView({behavior:"smooth"});
@@ -274,7 +276,7 @@ btn.onclick=function(){
             amountInput.value=row.cells[3].innerText;
             dateInput.value=row.cells[4].innerText;
             document.getElementById("appt").value=row.cells[5].innerText;
-            
+
             var payInputs=document.getElementsByName("payment");
             for(var i=0; i<payInputs.length;i++){
                 if(payInputs[i].value === row.cells[6].innerText){

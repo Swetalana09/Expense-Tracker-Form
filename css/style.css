@@ -214,6 +214,7 @@ input[type="radio"]+label{
 table{
     width:100%;
     border-collapse: collapse;
+    /* table-layout: fixed; */
 }
 
 th,td{
@@ -234,7 +235,7 @@ th{
 }
 
 .edit-btn{
-    background-color: #2f8f59;
+    background-color: #146236;
     color:white;
     border:none;
     padding:6px 12px;
@@ -250,7 +251,7 @@ th{
 }
 
 .del-btn{
-    background-color: #691019;
+    background-color: #5c0e16;
     color:white;
     border:none;
     padding: 6px 12px;
@@ -291,3 +292,21 @@ th{
     white-space: nowrap;
 }
 
+table td button.edit-btn,
+table td button.del-btn{
+    width:90px;
+    display:block;
+    margin:5px auto;
+}
+
+/* table th, table td{
+    width: 6.66%;
+    word-wrap: break-word;
+} */
+
+/* table th.edit-btn,
+table td.del-btn{
+    width:100%;
+    display:block;
+    margin-bottom: 5px;
+} */
