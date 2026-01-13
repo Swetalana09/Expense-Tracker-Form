@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div class="page-layout">
     <div class="container">
         <div class="main">
             <h2>EXPENSE TRACKER FORM</h2>
@@ -20,7 +21,7 @@
                     <legend>Expense Details</legend>
                     <!--Expense Title-->
                     <label for="exptitle">Expense Title <span class="asterisk">*</span></label><br>
-                    <input type="text" id="exptitle" name="exptitle" placeholder="Expense name" required minlength="3"
+                    <input type="text" id="exptitle" name="exptitle" placeholder="Please enter a title with a minimum of three characters." required minlength="3"
                         maxlength="50">
                     <br>
 
@@ -41,11 +42,6 @@
 
                 <fieldset>
                     <legend>Amount</legend>
-                    <!--Amount (number)-->
-                    <label for="amount">Amount<span class="asterisk">*</span></label><br>
-                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
-                    <br>
-
                     <!--Currency (Dropdown)-->
                     <label for="currency">Select Currency <span class="asterisk">*</span></label><br>
                     <select name="currency" id="currency" required>
@@ -53,7 +49,12 @@
                         <option value="USD" label="US Dollar">USD</option>
                         <option value="INR" label="Indian Rupee">INR</option>
                         <option value="EUR" label="Euro">EUR</option>
-                    </select>
+                    </select><br><br>
+
+                    <!--Amount (number)-->
+                    <label for="amount">Amount<span class="asterisk">*</span></label><br>
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+                    <br>
                 </fieldset>
 
                 <fieldset>
@@ -149,6 +150,29 @@
             </form>
         </div>
     </div>
+
+
+    <div class="table-box">
+            <h2>EXPENSE RECORDS</h2>
+            <table id="expensTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Date</th>
+                        <th>Payment Method</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                <thead>
+                    <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    
     <script src="js/script.js"></script>
 </body>
 

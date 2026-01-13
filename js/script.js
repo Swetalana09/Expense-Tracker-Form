@@ -1,6 +1,10 @@
 const form = document.querySelector("form");
 const btn = document.querySelector("button");
 
+const dateInput=document.getElementById("dt");
+const today=new Date().toISOString().split("T")[0];
+dateInput.setAttribute("max",today);
+
 //shows an error msg below the input field
 function showError(el, msg) {
     removeError(el);
@@ -21,9 +25,20 @@ function removeError(el) {
 
 //shows error for groups like radio buttons or checkboxes
 function showGroupError(el, msg) {
+    if(!el){
+        return;
+    }
     const parent = el.parentElement;
+
+    if(!parent){
+        return;
+    }
     const existing = parent.querySelector(".error");
-    if (existing) existing.remove();
+
+    if (existing) {
+        existing.remove();
+        
+    }
     const e = document.createElement("div");
     e.className = "error";
     e.style.color = "red";
@@ -43,12 +58,14 @@ function validateTitle(showRequired = false) {
         showError(titleInput, "Please enter a title.");
         return false;
     }
-    if (/^\s/.test(value)) {
-        showError(titleInput, "Title cannot start with a space.");
+    if(value.trim()!==""){
+
+    if (!/^[a-zA-Z0-9]/.test(value)) {
+        showError(titleInput,"Title must start with a letter or number and cannot start with space or special character.")
         return false;
     }
     const trimmed = value.trim();
-    if (trimmed !== "" && trimmed.length < 3) {
+    if (trimmed.length < 3) {
         showError(titleInput, "Please enter a minimum of 3 characters.");
         return false;
     }
@@ -56,82 +73,11 @@ function validateTitle(showRequired = false) {
         showError(titleInput, "Please enter no more than 50 characters.");
         return false;
     }
-    return true;
+}
+return true;
 }
 titleInput.addEventListener("input", () => validateTitle(false));
 titleInput.addEventListener("blur", () => validateTitle(true));
-
-
-//vendor/store name
-const vendorInput = document.getElementById("name");
-function validateVendor() {
-    const value = vendorInput.value;
-    removeError(vendorInput);
-    if (value !== "") {
-        if (/^\s/.test(value)) {
-            showError(vendorInput, "Name cannot start with a space.");
-            return false;
-        }
-        const trimmed = value.trim();
-        if (trimmed.length < 3) {
-            showError(vendorInput, "Please enter a minimum of 3 characters.");
-            return false;
-        }
-        if (trimmed.length > 50) {
-            showError(vendorInput, "Please enter no more than 50 characters.");
-            return false;
-        }
-    }
-    return true;
-}
-vendorInput.addEventListener("input",validateVendor);
-vendorInput.addEventListener("blur",validateVendor);
-
-//location
-const locationInput = document.getElementById("loc");
-function validateLocation() {
-    const value = locationInput.value;
-    removeError(locationInput);
-    if (value !== "") {
-        if (/^\s/.test(value)) {
-            showError(locationInput, "Location cannot start with a space.");
-            return false;
-        }
-        const trimmed = value.trim();
-        if (trimmed.length < 3) {
-            showError(locationInput, "Please enter a minimum of 3 characters.");
-            return false;
-        }
-        if (trimmed.length > 50) {
-            showError(locationInput, "Please enter no more than 50 characters.");
-            return false;
-        }
-    }
-    return true;
-}
-locationInput.addEventListener("input",validateLocation);
-locationInput.addEventListener("blur",validateLocation);
-
-//transaction ID
-const transactionInput = document.getElementById("transaction");
-function validateTransactionID() {
-    const value = transactionInput.value;
-    removeError(transactionInput);
-
-    if (value !== "") {
-        if (/^[^a-zA-Z0-9]/.test(value)) {
-            showError(transactionInput, "Cannot start with a space or special character.");
-            return false;
-        }
-        if (!/^[^a-zA-Z0-9-_]+$/.test(value)) {
-            showError(transactionInput, "Can only contain letters, numbers, hyphens, and underscores.");
-            return false;
-        }
-    }
-    return true;
-}
-transactionInput.addEventListener("input",validateTransactionID);
-transactionInput.addEventListener("blur",validateTransactionID);
 
 //amount
 const amountInput = document.getElementById("amount");
@@ -161,14 +107,12 @@ amountInput.addEventListener("blur",()=>validateAmount(true));
 
 //submit validation
 btn.onclick=function(){
+
     let valid=true;
     document.querySelectorAll(".error").forEach(e=>e.remove());
 
     if(!validateTitle(true)) valid=false;
     if(!validateAmount(true)) valid=false;
-    validateVendor();
-    validateLocation();
-    validateTransactionID();
 
     //inputs
     document.querySelectorAll("input[required]").forEach(input=>{
@@ -180,6 +124,12 @@ btn.onclick=function(){
         }
     });
 
+    //date validation
+    if(dateInput.value>today){
+        showError(dateInput,"Expense date cannot be in the future.")
+        valid=false;
+    }
+
     //selects
     document.querySelectorAll("select[required]").forEach(select=>{
         if(select.value===""){
@@ -190,15 +140,32 @@ btn.onclick=function(){
         }
     });
 
-    //radio
-    const radios=document.querySelectorAll('input[name="payement"]');
-    if(!document.querySelector('input[name="payment"]:checked')){
-        showGroupError(radios[radios.length-1],"Please select a Payment Method.");
+    // //payment (radio)
+    // var radios=document.getElementsByName('payment');    
+    // if(radios.length>0 && !document.getElementsByName('payment').checked){ 
+    //     showGroupError(radios[radios.length-1],"Please select a Payment Method.");
+    //     valid=false;
+    // }
+
+    //payment(radio)
+    var radios=document.getElementsByName('payment');
+    let radioChecked=false;
+    for(let i=0;i<radios.length;i++){
+        if(radios[i].checked){
+            radioChecked=true;
+            break;
+        }
+    }
+
+    if(!radioChecked){
+        showGroupError(radios[radios.length-1],"Please select a payment method.");
         valid=false;
     }
 
+
     //checkbox
     const save=document.querySelector('input[type="checkbox"][required]');
+    // if(save && !save.checked){
     if(!save.checked){
         showGroupError(save,"You must save this expense to continue.");
         valid=false;
@@ -210,6 +177,12 @@ btn.onclick=function(){
         firstError.scrollIntoView();
     }
     if(valid){
+        // const formData={
+        //     expenseTitle: document.getElementById("exptitle").value,
+        //     amount:document.getElementById("amount").value,
+
+        // };
+        // console.log(formData);
         alert("Form submitted successfully!")
         form.reset();
     }
