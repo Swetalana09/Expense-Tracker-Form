@@ -78,19 +78,19 @@
                 <fieldset>
                     <!--Payment method (radio)-->
                     <label>Payment Method <span class="asterisk">*</span></label><br>
-                    <input type="radio" id="payment_cash" name="payment" value="cash" required>
+                    <input type="radio" id="payment_cash" name="payment" value="Cash" required>
                     <label for="payment_cash">Cash</label><br>
 
-                    <input type="radio" id="payment_card" name="payment" value="card" required>
+                    <input type="radio" id="payment_card" name="payment" value="Credit/Debit Card" required>
                     <label for="payment_card">Credit/Debit Card</label><br>
 
-                    <input type="radio" id="payment_upi" name="payment" value="UPI" required>
+                    <input type="radio" id="payment_upi" name="payment" value="UPI/Mobile Wallet" required>
                     <label for="payment_upi">UPI/Mobile Wallet</label><br>
 
                     <input type="radio" id="payment_bank" name="payment" value="Bank Transfer" required>
                     <label for="payment_bank">Bank Transfer</label><br>
 
-                    <input type="radio" id="payment_cheque" name="payment" value="cheque" required>
+                    <input type="radio" id="payment_cheque" name="payment" value="Cheque" required>
                     <label for="payment_cheque">Cheque</label><br>
                 </fieldset>
 
@@ -154,15 +154,23 @@
 
     <div class="table-box">
             <h2>EXPENSE RECORDS</h2>
-            <table id="expensTable">
+            <table id="expenseTable">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Amount</th>
                         <th>Currency</th>
+                        <th>Amount</th>
                         <th>Date</th>
+                        <th>Time</th>
                         <th>Payment Method</th>
+                        <th>Transcation ID</th>
+                        <th>Vendor/Store Name</th>
+                        <th>Location</th>
+                        <th>Receipt Available</th>
+                        <th>Notes/Description</th>
+                        <th>Tags</th>
+                        <th>Recurring Expense</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -171,8 +179,6 @@
             </table>
         </div>
     </div>
-
-    
     <script src="js/script.js"></script>
 </body>
 
