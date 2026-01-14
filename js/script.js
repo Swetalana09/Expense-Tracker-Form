@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
 const form = document.querySelector("form");
 const btn = document.querySelector("button");
 
+//date
 const dateInput=document.getElementById("dt");
 const today=new Date().toISOString().split("T")[0];
 dateInput.setAttribute("max",today);
@@ -145,13 +146,6 @@ btn.onclick=function(){
 
     }
 
-    // //payment (radio)
-    // var radios=document.getElementsByName('payment');    
-    // if(radios.length>0 && !document.getElementsByName('payment').checked){ 
-    //     showGroupError(radios[radios.length-1],"Please select a Payment Method.");
-    //     valid=false;
-    // }
-
     //payment(radio)
     var radios=document.getElementsByName('payment');
     let radioChecked=false;
@@ -191,7 +185,6 @@ btn.onclick=function(){
             var paymentValue=document.querySelector('input[name="payment"]:checked').value;
 
             if(editRow===null){
-
                 //removing "no data" row if it exists
                 var noDataRow=document.getElementById("noData");
                 if (noDataRow){

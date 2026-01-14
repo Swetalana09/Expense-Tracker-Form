@@ -1,2 +1,0 @@
-//success mss
-//error msg
