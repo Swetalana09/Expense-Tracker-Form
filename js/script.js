@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded",function(){
-//table
 
 const form = document.querySelector("form");
 const btn = document.querySelector("button");
@@ -167,7 +166,6 @@ btn.onclick=function(){
         showGroupError(radios[radios.length-1],"Please select a payment method.");
         valid=false;
     }
-
 
     //checkbox
     var save=document.querySelector('input[type="checkbox"][required]');
