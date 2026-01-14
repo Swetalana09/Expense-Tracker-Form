@@ -45,12 +45,12 @@ body{
 }
 .container{
     width:90%;
-    max-width: 50%;
+    max-width: 730px;
     padding: 20px;
     margin:auto;
     box-sizing: border-box;
     background-color: #3b3b98;
-    flex: 0 0 730px;
+    /* flex: 0 0 730px; */
     /* background-image: url('../images/picture.jpg');
     background-size: cover;
     background-position: center;
@@ -208,13 +208,28 @@ input[type="radio"]+label{
     padding: 20px;
     border-radius: 0px;
     border: 1px solid #03034f;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     overflow-x: auto;
 }
 
 table{
     width:100%;
     border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    overflow: hidden;
     /* table-layout: fixed; */
+}
+
+.table-box h2{
+    color:#051330;
+    font-size:24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px #b0b0ff;
 }
 
 th,td{
@@ -239,7 +254,7 @@ th{
     color:white;
     border:none;
     padding:6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
@@ -247,7 +262,7 @@ th{
 }
 
 .edit-btn:hover{
-    background-color: #68b080;
+    background-color: #42b86a;
 }
 
 .del-btn{
@@ -255,7 +270,7 @@ th{
     color:white;
     border:none;
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor:pointer;
     font-weight: bold;
     text-transform: uppercase;
@@ -266,7 +281,7 @@ th{
     background-color: #c82333;
 }
 
-.table-box h2{
+/* .table-box h2{
     color:white;
     text-shadow: 1px 1px 2px #6f7da5;
     font-size:26px;
@@ -274,21 +289,55 @@ th{
     margin-bottom: 20px;
     font-weight: bolder;
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 @media (max-width:900px){
     .page-layout{
         flex-direction: column;
+        gap:15px;
     }
 
     th,td{
         padding: 6px;
         font-size: 14px;
     }
+
+    .container,
+    .table-box{
+        width:100%;
+        max-width:100%;
+        padding:15px;
+    }
 }
 
+@media (max-width:600px){
+    input,
+    select,
+    textarea{
+        font-size:16px;
+        padding:12px;
+    }
+
+    label{
+        font-size:15px;
+    }
+    button{
+        width:100%;
+        padding:14px;
+        font-size:16px;
+    }
+
+    table td button.edit-btn,
+    table td button.del-btn{
+        width:80px;
+        font-size:12px;
+        padding:6px;
+    }
+}
+
+
 #expenseTable{
-    min-width: 1400px;
+    min-width: 1200px;
     white-space: nowrap;
 }
 
@@ -302,11 +351,6 @@ table td button.del-btn{
 /* table th, table td{
     width: 6.66%;
     word-wrap: break-word;
-} */
-
-/* table th.edit-btn,
-table td.del-btn{
-    width:100%;
-    display:block;
-    margin-bottom: 5px;
+    table-layout: fixed;
+    overflow: hidden;
 } */

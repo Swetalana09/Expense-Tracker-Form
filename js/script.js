@@ -193,26 +193,35 @@ btn.onclick=function(){
             var paymentValue=document.querySelector('input[name="payment"]:checked').value;
 
             if(editRow===null){
-                //concatenating values of respective columns to make a complete row
-                var newRow=table.insertRow();
-                newRow.innerHTML="<td>" + titleInput.value + "</td>" +
-                "<td>" + document.getElementById('category').value + "</td>" +
-                "<td>" + document.getElementById("currency").value + "</td>" +
-                "<td>" + amountInput.value + "</td>" +
-                "<td>" + dateInput.value + "</td>" +
-                "<td>" + document.getElementById("appt").value + "</td>" +
-                "<td>" + paymentValue + "</td>" +
-                "<td>" + document.getElementById("transaction").value + "</td>" +
-                "<td>" + document.getElementById("name").value + "</td>" +
-                "<td>" + document.getElementById("loc").value + "</td>" +
-                "<td>" + (document.querySelector('input[name="receipt"]:checked')?.value|| "") +"</td>" +
-                "<td>" + document.getElementById("note").value + "</td>" +
-                "<td>" + document.getElementById("tags").value + "</td>" +
-                "<td>" + (document.getElementById("save_recurring").checked? "Yes" : "No") + "</td>" +
 
-                "<td>" + "<button class='edit-btn'>EDIT</button>" + 
-                "<button class='del-btn'>DELETE</button>" + 
-                "</td>";
+                //removing "no data" row if it exists
+                var noDataRow=document.getElementById("noData");
+                if (noDataRow){
+                    noDataRow.remove();
+                }
+
+                //Insertig new row
+                var newRow=table.insertRow();
+
+                newRow.insertCell(0).innerText=titleInput.value;
+                newRow.insertCell(1).innerText=document.getElementById("category").value;
+                newRow.insertCell(2).innerText=document.getElementById("currency").value;
+                newRow.insertCell(3).innerText=amountInput.value;
+                newRow.insertCell(4).innerText=dateInput.value;
+                newRow.insertCell(5).innerText=document.getElementById("appt").value;
+                newRow.insertCell(6).innerText=paymentValue;
+                newRow.insertCell(7).innerText=document.getElementById("transaction").value;
+                newRow.insertCell(8).innerText=document.getElementById("name").value;
+                newRow.insertCell(9).innerText=document.getElementById("loc").value;
+                newRow.insertCell(10).innerText=document.querySelector('input[name="receipt"]:checked')?.value || "";
+                newRow.insertCell(11).innerText=document.getElementById("note").value;
+                newRow.insertCell(12).innerText=document.getElementById("tags").value;
+                newRow.insertCell(13).innerText=document.getElementById("save_recurring").checked? "Yes": "No";
+
+                var actionCell = newRow.insertCell(14);
+                actionCell.innerHTML=
+                "<button class='edit-btn'>Edit</button><br>" +
+                "<button class='del-btn'>Delete</button>";
                 
                 alert("Form submitted successully!");
                 document.getElementById("expenseTable").scrollIntoView({behavior:"smooth"});
@@ -305,6 +314,15 @@ btn.onclick=function(){
         if(target.classList.contains("del-btn")){
             if(confirm('Are you sure you want to delete this expense?')){
                 row.remove();
+
+                var tbody=table.querySelector("tbody");
+                if(tbody.rows.length===0){
+                    var emptyRow=tbody.insertRow();
+                    var emptyCell = emptyRow.insertCell(0);
+                    emptyCell.colSpan=15;
+                    emptyCell.innerText="No Data Found";
+                    emptyCell.style.textAlign="center";
+                }
             }
         }
     };
