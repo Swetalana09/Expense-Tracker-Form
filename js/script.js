@@ -181,6 +181,7 @@ btn.onclick=function(){
     }
 
         if(valid){
+
             var table=document.getElementById("expenseTable").getElementsByTagName('tbody')[0];
             var paymentValue=document.querySelector('input[name="payment"]:checked').value;
 
@@ -209,12 +210,16 @@ btn.onclick=function(){
                 newRow.insertCell(12).innerText=document.getElementById("tags").value;
                 newRow.insertCell(13).innerText=document.getElementById("save_recurring").checked? "Yes": "No";
 
+                
+
                 var actionCell = newRow.insertCell(14);
                 actionCell.innerHTML=
                 "<button class='edit-btn'>Edit</button><br>" +
                 "<button class='del-btn'>Delete</button>";
                 
                 alert("Form submitted successully!");
+                const tag = document.getElementById("tags").value;
+                console.log(tag);
                 document.getElementById("expenseTable").scrollIntoView({behavior:"smooth"});
             } else{
             editRow.cells[0].innerText=titleInput.value;

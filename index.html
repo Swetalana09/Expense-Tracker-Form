@@ -10,179 +10,183 @@
 
 <body>
     <div class="page-layout">
-    <div class="container">
-        <div class="main">
-            <h2>EXPENSE TRACKER FORM</h2>
-            <p class="id1">~ Keep Track of Your Spending</p>
-        </div>
-        <div class="form">
-            <form>
-                <fieldset>
-                    <legend>Expense Details</legend>
-                    <!--Expense Title-->
-                    <label for="exptitle">Expense Title <span class="asterisk">*</span></label><br>
-                    <input type="text" id="exptitle" name="exptitle" placeholder="Enter Title" required minlength="3"
-                        maxlength="50">
-                    <br>
+        <div class="container">
+            <div class="main">
+                <h2>EXPENSE TRACKER FORM</h2>
+                <p class="id1">~ Keep Track of Your Spending</p>
+            </div>
+            <div class="form">
+                <form>
 
-                    <!--Category (Dropdown)-->
-                    <label for="category">Choose Category <span class="asterisk">*</span></label><br>
-                    <select name="category" id="category" required>
-                        <option value="">--Select Category--</option> <!--default entry option-->
-                        <option value="Housing">Housing</option>
-                        <option value="Food">Food</option>
-                        <option value="Transportation">Transportation</option>
-                        <option value="Health">Health</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Miscellaneous">Miscellaneous expenses</option>
-                    </select>
-                </fieldset>
+                    <div class="form-row">
+                        <div class="input-group flex-2">
+                            <label for="exptitle">Expense Title <span class="asterisk">*</span></label>
+                            <input type="text" id="exptitle" name="exptitle" placeholder="e.g., Lunch at restaurant" required
+                                minlength="3" maxlength="50">
+                        </div>
 
-                <fieldset>
-                    <legend>Amount</legend>
-                    <!--Currency (Dropdown)-->
-                    <label for="currency">Select Currency <span class="asterisk">*</span></label><br>
-                    <select name="currency" id="currency" required>
-                        <option value="">--Select Currency--</option>
-                        <option value="USD" label="US Dollar">USD</option>
-                        <option value="INR" label="Indian Rupee">INR</option>
-                        <option value="EUR" label="Euro">EUR</option>
-                    </select><br><br>
+                        <!--Category (Dropdown)-->
+                        <div class="input-group flex-1">
+                            <label for="category">Category <span class="asterisk">*</span></label>
+                            <select name="category" id="category" required>
+                                <option value="">Select Category</option> <!--default entry option-->
+                                <option value="Housing">Housing</option>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Health">Health</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Miscellaneous">Miscellaneous expenses</option>
+                            </select>
+                        </div>
+                    </div>
 
-                    <!--Amount (number)-->
-                    <label for="amount">Amount <span class="asterisk">*</span></label><br>
-                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
-                    <br>
-                </fieldset>
+                    <div class="form-row">
+                        <div class="input-group flex-1">
+                            <label for="currency">Currency <span class="asterisk">*</span></label>
+                            <select name="currency" id="currency" required>
+                                <option value="">Select Currency</option>
+                                <option value="USD" label="US Dollar">USD</option>
+                                <option value="INR" label="Indian Rupee">INR</option>
+                                <option value="EUR" label="Euro">EUR</option>
+                            </select>
+                        </div>
 
-                <fieldset>
-                    <legend>Date & Time</legend>
-                    <div class="box">
-                        <!--Expense Date-->
-                        <div>
-                            <label for="dt">Expense Date <span class="asterisk">*</span></label><br>
+                        <!--Amount (number)-->
+                        <div class="input-group flex-1">
+                            <label for="amount">Amount <span class="asterisk">*</span></label>
+                            <input type="number" id="amount" name="amount" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <!--Expense Date-->
+                            <label for="dt">Date <span class="asterisk">*</span></label>
                             <input type="date" id="dt" name="dt" required>
                         </div>
 
                         <!--Time-->
-                        <div>
-                            <label for="appt">Select Time</label>
+                        <div class="input-group">
+                            <label for="appt">Time (optional)</label>
                             <input type="time" id="appt" name="appt">
                         </div>
                     </div>
-                </fieldset>
-                <br>
 
-                <fieldset>
-                    <!--Payment method (radio)-->
-                    <label>Payment Method <span class="asterisk">*</span></label><br>
-                    <input type="radio" id="payment_cash" name="payment" value="Cash" required>
-                    <label for="payment_cash">Cash</label><br>
+                    <fieldset>
+                        <!--Payment method (radio)-->
+                        <label>Payment Method <span class="asterisk">*</span></label><br>
+                        <input type="radio" id="payment_cash" name="payment" value="Cash" required>
+                        <label for="payment_cash">Cash</label><br>
 
-                    <input type="radio" id="payment_card" name="payment" value="Credit/Debit Card" required>
-                    <label for="payment_card">Credit/Debit Card</label><br>
+                        <input type="radio" id="payment_card" name="payment" value="Credit/Debit Card" required>
+                        <label for="payment_card">Credit/Debit Card</label><br>
 
-                    <input type="radio" id="payment_upi" name="payment" value="UPI/Mobile Wallet" required>
-                    <label for="payment_upi">UPI/Mobile Wallet</label><br>
+                        <input type="radio" id="payment_upi" name="payment" value="UPI/Mobile Wallet" required>
+                        <label for="payment_upi">UPI/Mobile Wallet</label><br>
 
-                    <input type="radio" id="payment_bank" name="payment" value="Bank Transfer" required>
-                    <label for="payment_bank">Bank Transfer</label><br>
+                        <input type="radio" id="payment_bank" name="payment" value="Bank Transfer" required>
+                        <label for="payment_bank">Bank Transfer</label><br>
 
-                    <input type="radio" id="payment_cheque" name="payment" value="Cheque" required>
-                    <label for="payment_cheque">Cheque</label><br>
-                </fieldset>
+                        <input type="radio" id="payment_cheque" name="payment" value="Cheque" required>
+                        <label for="payment_cheque">Cheque</label><br>
+                    </fieldset>
 
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="transaction">Transaction ID (optional)</label>
+                            <input type="text" id="transaction" name="transaction" placeholder="e.g.,TXN123456">
+                        </div>
 
-                <fieldset>
-                    <legend>Reference (optional)</legend>
-                    <!--Transaction ID-->
-                    <label for="transaction">Transaction ID</label><br>
-                    <input type="text" id="transaction" name="transaction" placeholder="Enter Transaction ID">
-                    <br>
-
-                    <!--Vendor/Store name-->
-                    <label for="name">Vendor/Store Name</label><br>
-                    <input type="text" id="name" name="name" placeholder="Enter Vendor/Store name">
-                    <br>
+                        <div class="input-group">
+                            <label for="name">Vendor/Store Name (optional)</label>
+                            <input type="text" id="name" name="name" placeholder="e.g.,Amazon">
+                        </div>
+                    </div>
 
                     <!--Location-->
-                    <label for="loc">Location</label><br>
-                    <input type="text" id="loc" name="loc" placeholder="Enter Location">
-                </fieldset>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="loc">Location (optional)</label>
+                            <input type="text" id="loc" name="loc" placeholder="Start typing a location...">
+                        </div>
 
-                <fieldset>
-                    <legend>Additional Information</legend>
-                    <!--Receipt Available-->
-                    <label>Receipt Available</label><br>
-                    <input type="radio" id="receipt_yes" name="receipt" value="yes">
-                    <label for="receipt_yes">Yes</label><br>
-                    <input type="radio" id="receipt_no" name="receipt" value="no">
-                    <label for="receipt_no">No</label>
-                    <br><br>
+                        <div class="input-group">
+                            <label for="tags">Tags (optional)</label>
+                            <input type="text" id="tags" name="tags" placeholder="e.g.,work, personal, urgent (comma-separated)">
+                        </div>
+                    </div>
 
-                    <!--Notes/Description-->
-                    <label for="note">Notes/Description</label><br>
-                    <textarea id="note" name="note" max="200" placeholder="Your message..."></textarea>
-                    <br><br>
+                    <div class="input-group receipt">
+                        <!--Receipt Available-->
+                        <label>Receipt Available (optional)</label>
+                        <div class="radio-group">
+                            <input type="radio" id="receipt_yes" name="receipt" value="yes">
+                            <label for="receipt_yes">Yes</label>
+                            <input type="radio" id="receipt_no" name="receipt" value="no">
+                            <label for="receipt_no">No</label>
+                        </div>
+                    </div>
 
-                    <!--Tags-->
-                    <label for="tags">Tags</label>
-                    <input type="text" id="tags" name="tags" placeholder="e.g. Food, Travel, Office">
-                </fieldset>
+                    <div class="input-group">
+                        <!--Notes/Description-->
+                        <label for="note">Notes/Description (optional)</label>
+                        <textarea id="note" name="note" max="200" placeholder="Add any additional notes..."></textarea>
+                    </div>
 
-                <fieldset>
-                    <legend>Expense Preferences</legend>
-                    <!--Recurring expense-->
-                    <input type="checkbox" id="save_recurring" name="save" value="Yes">
-                    <label for="save_recurring">Save this recurring expense</label><br>
-                    <br>
+                    <fieldset>
+                        <legend>Expense Preferences</legend>
+                        <!--Recurring expense-->
+                        <input type="checkbox" id="save_recurring" name="save" value="Yes">
+                        <label for="save_recurring">Save this recurring expense</label><br>
+                        <br>
 
-                    <!--Save expense-->
-                    <input type="checkbox" id="save_expense" name="save" value="Yes" required>
-                    <label for="save_expense">Save this expense <span class="asterisk">*</span></label><br>
-                </fieldset>
+                        <!--Save expense-->
+                        <input type="checkbox" id="save_expense" name="save" value="Yes" required>
+                        <label for="save_expense">Save this expense <span class="asterisk">*</span></label><br>
+                    </fieldset>
 
-                <div class="submit">
-                    <button type="button">SUBMIT</button>
-                </div>
-            </form>
+                    <div class="submit">
+                        <button type="button">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
 
-    <div class="table-box">
-        <div class="table-heading">
-            <h2>EXPENSE RECORDS</h2>
-        </div>
+        <div class="table-box">
+            <div class="table-heading">
+                <h2>EXPENSE RECORDS</h2>
+            </div>
             <div class="table-main">
-            <table id="expenseTable">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Currency</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Payment Method</th>
-                        <th>Transcation ID</th>
-                        <th>Vendor/Store Name</th>
-                        <th>Location</th>
-                        <th>Receipt Available</th>
-                        <th>Notes/Description</th>
-                        <th>Tags</th>
-                        <th>Recurring Expense</th>
-                        <th>Actions</th>
-                    </tr>
-                <thead>
-                    <tbody>
-                        <tr id="noData">
-                            <td colspan="15" style="text-align: center; color:black; font-weight: bold;">No Data Found</td>
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Payment Method</th>
+                            <th>Transcation ID</th>
+                            <th>Vendor/Store Name</th>
+                            <th>Location</th>
+                            <th>Receipt Available</th>
+                            <th>Notes/Description</th>
+                            <th>Tags</th>
+                            <th>Recurring Expense</th>
+                            <th>Actions</th>
                         </tr>
-                    </tbody>
-            </table>
+                        <thead>
+                        <tbody>
+                            <tr id="noData">
+                                <td colspan="15" style="text-align: center; color:black; font-weight: bold;">No Data
+                                    Found</td>
+                            </tr>
+                        </tbody>
+                </table>
             </div>
         </div>
     </div>
